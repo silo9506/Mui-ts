@@ -1,6 +1,6 @@
 import Grid from '@mui/material/Grid';
-import Storeitem from 'components/atoms/Storeitem';
 import itemsData from 'data/items.json';
+import Storeitem from 'components/atoms/Storeitem';
 
 const Store = () => {
   return (
@@ -11,7 +11,6 @@ const Store = () => {
           return (
             <Grid xs={12} sm={6} md={4} key={items.id} item>
               <Storeitem {...items} />
-              {/* <img src={require(`../../../src/${items.imgUrl}`)} />{' '} */}
             </Grid>
           );
         })}

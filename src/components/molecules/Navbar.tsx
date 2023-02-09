@@ -8,12 +8,14 @@ import {
 } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Link as RouterLink } from 'react-router-dom';
-import React from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 import { flexbox } from 'styles/mixins';
+import { useShoppingCart } from 'modules/ShoppingCartContext';
 
 const Navbar = () => {
-  const [value, setValue] = React.useState(0);
+  const { cartQuantity, toggleDrawer } = useShoppingCart();
+  const [value, setValue] = useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -42,9 +44,12 @@ const Navbar = () => {
               <Tab component={RouterLink} to="/About" label="About" />
               <Tab component={RouterLink} to="/Store" label="Store" />
             </Tabs>
-            <CartBtn>
+            <CartBtn
+              sx={{ backgroundColor: 'transparent' }}
+              onClick={toggleDrawer(true)}
+            >
               <ShoppingCartIcon color="info" />
-              <div className="alert-circle">5</div>
+              <div className="alert-circle">{cartQuantity}</div>
             </CartBtn>
           </Toolbar>
         </Container>

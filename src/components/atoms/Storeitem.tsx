@@ -8,6 +8,7 @@ import {
   Box,
   Button,
 } from '@mui/material';
+import { useShoppingCart } from 'modules/ShoppingCartContext';
 type StoreItemProps = {
   id: number;
   name: string;
@@ -16,8 +17,13 @@ type StoreItemProps = {
 };
 
 const Storeitem = ({ id, name, price, imgUrl }: StoreItemProps) => {
-  console.log(id, name, price, imgUrl);
-  const [quantity, setQuantity] = React.useState(0);
+  const {
+    getItemQuantity,
+    increaseCartQuantity,
+    decreaseCartQuantity,
+    removeFromCart,
+  } = useShoppingCart();
+  const quantity = getItemQuantity(id);
   return (
     <Card>
       <CardMedia
@@ -48,11 +54,66 @@ const Storeitem = ({ id, name, price, imgUrl }: StoreItemProps) => {
           </Typography>
         </Box>
         {quantity === 0 ? (
-          <Button variant="contained" fullWidth>
+          <Button
+            variant="contained"
+            fullWidth
+            onClick={() => increaseCartQuantity(id)}
+          >
             + Add To Cart
           </Button>
         ) : (
-          <Box></Box>
+          <Box>
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              <Button
+                onClick={() => increaseCartQuantity(id)}
+                size="small"
+                sx={{
+                  minWidth: '5px',
+                }}
+                variant="contained"
+              >
+                +
+              </Button>
+              <Box sx={{ marginX: '3px' }}>
+                <Typography
+                  component={'span'}
+                  variant="h5"
+                  sx={{ paddingX: '3px' }}
+                >
+                  {quantity}
+                </Typography>
+                in cart
+              </Box>
+
+              <Button
+                onClick={() => decreaseCartQuantity(id)}
+                size="small"
+                sx={{
+                  minWidth: '5px',
+                }}
+                variant="contained"
+              >
+                -
+              </Button>
+            </Box>
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              <Button onClick={() => removeFromCart(id)} variant="contained">
+                Remove
+              </Button>
+            </Box>
+          </Box>
         )}
       </CardContent>
     </Card>
