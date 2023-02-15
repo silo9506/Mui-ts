@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/silo9506.io/Mui-ts/static/css/main.073c9b0a.css",
+    "main.js": "/silo9506.io/Mui-ts/static/js/main.c5e39487.js",
+    "static/js/787.c44e5419.chunk.js": "/silo9506.io/Mui-ts/static/js/787.c44e5419.chunk.js",
+    "static/media/logo.svg": "/silo9506.io/Mui-ts/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/silo9506.io/Mui-ts/index.html",
+    "main.073c9b0a.css.map": "/silo9506.io/Mui-ts/static/css/main.073c9b0a.css.map",
+    "main.c5e39487.js.map": "/silo9506.io/Mui-ts/static/js/main.c5e39487.js.map",
+    "787.c44e5419.chunk.js.map": "/silo9506.io/Mui-ts/static/js/787.c44e5419.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.c5e39487.js"
+  ]
+}
